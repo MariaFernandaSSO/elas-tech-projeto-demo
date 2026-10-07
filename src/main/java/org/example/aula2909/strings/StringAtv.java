@@ -1,4 +1,4 @@
-package org.example.aula2909.stringsatv;
+package org.example.aula2909.strings;
 
 import java.util.Scanner;
 

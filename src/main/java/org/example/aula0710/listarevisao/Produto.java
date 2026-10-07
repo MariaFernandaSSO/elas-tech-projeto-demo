@@ -1,4 +1,4 @@
-package org.example.aula0710.listarevisao0710;
+package org.example.aula0710.listarevisao;
 
 public class Produto {
     String nome;

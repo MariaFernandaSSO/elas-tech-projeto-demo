@@ -1,4 +1,4 @@
-package org.example.aula0710.listarevisao0710;
+package org.example.aula0710.listarevisao;
 
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -8,7 +8,7 @@ public class DesafioCatalogo {
 
     static String definirClassificacao(double nota) {
         if (nota >= 8) {
-            return "Ótimo";
+            return "Ã“timo";
         } else if (nota >= 5) {
             return "Bom";
         } else {
@@ -24,20 +24,20 @@ public class DesafioCatalogo {
         int total = 0;
         int opcao = 0;
 
-        System.out.println("=== MEU CATÁLOGO ===");
+        System.out.println("=== MEU CATÃLOGO ===");
 
         while (opcao != 5) {
             System.out.println("1 - Cadastrar filme");
             System.out.println("2 - Listar filmes");
-            System.out.println("3 - Buscar por título");
-            System.out.println("4 - Estatísticas");
+            System.out.println("3 - Buscar por tÃ­tulo");
+            System.out.println("4 - EstatÃ­sticas");
             System.out.println("5 - Sair");
             System.out.print("Escolha: ");
 
             try {
                 opcao = sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Digite apenas números!");
+                System.out.println("Digite apenas nÃºmeros!");
                 sc.nextLine();
                 continue;
             }
@@ -46,14 +46,14 @@ public class DesafioCatalogo {
             switch (opcao) {
                 case 1:
                     if (total >= filmes.length) {
-                        System.out.println("Não é possível cadastrar mais filmes. O catálogo está cheio.");
+                        System.out.println("NÃ£o Ã© possÃ­vel cadastrar mais filmes. O catÃ¡logo estÃ¡ cheio.");
                         break;
                     }
 
-                    System.out.print("Título: ");
+                    System.out.print("TÃ­tulo: ");
                     String titulo = sc.nextLine();
 
-                    System.out.print("Gênero: ");
+                    System.out.print("GÃªnero: ");
                     String genero = sc.nextLine().toUpperCase();
 
                     double nota = -1;
@@ -69,7 +69,7 @@ public class DesafioCatalogo {
                                 System.out.println("Digite uma nota entre 0 e 10.");
                             }
                         } catch (InputMismatchException e) {
-                            System.out.println("Digite apenas números!");
+                            System.out.println("Digite apenas nÃºmeros!");
                             sc.nextLine();
                         }
                     }
@@ -105,7 +105,7 @@ public class DesafioCatalogo {
                         break;
                     }
 
-                    System.out.print("Digite o título: ");
+                    System.out.print("Digite o tÃ­tulo: ");
                     String tituloBusca = sc.nextLine();
                     boolean encontrado = false;
 
@@ -118,7 +118,7 @@ public class DesafioCatalogo {
                     }
 
                     if (!encontrado) {
-                        System.out.println("Filme não encontrado.");
+                        System.out.println("Filme nÃ£o encontrado.");
                     }
                     break;
 
@@ -137,7 +137,7 @@ public class DesafioCatalogo {
                         if (filmes[i].nota > filmes[melhorIndice].nota) {
                             melhorIndice = i;
                         }
-                        if (filmes[i].classificacao.equals("Ótimo")) {
+                        if (filmes[i].classificacao.equals("Ã“timo")) {
                             quantidadeOtimo++;
                         }
                     }
@@ -145,17 +145,17 @@ public class DesafioCatalogo {
                     double mediaNotas = somaNotas / total;
 
                     System.out.println("Total de filmes: " + total);
-                    System.out.printf("Média das notas: %.2f%n", mediaNotas);
+                    System.out.printf("MÃ©dia das notas: %.2f%n", mediaNotas);
                     System.out.println("Melhor filme: " + filmes[melhorIndice].titulo);
-                    System.out.println("Filmes ótimos: " + quantidadeOtimo + " de " + total);
+                    System.out.println("Filmes Ã³timos: " + quantidadeOtimo + " de " + total);
                     break;
 
                 case 5:
-                    System.out.println("Obrigado por usar o catálogo. Até logo!");
+                    System.out.println("Obrigado por usar o catÃ¡logo. AtÃ© logo!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("OpÃ§Ã£o invÃ¡lida");
                     break;
             }
 

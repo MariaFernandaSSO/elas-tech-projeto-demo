@@ -1,4 +1,4 @@
-    package org.example.revisao0310;
+package org.example.revisao0310;
 
 public class Cozinheiro {
     public String nome;

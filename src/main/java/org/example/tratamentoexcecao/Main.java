@@ -1,4 +1,4 @@
-package org.example.tratamentoexcessaoatv;
+package org.example.tratamentoexcecao;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

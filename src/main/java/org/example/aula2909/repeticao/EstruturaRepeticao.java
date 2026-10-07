@@ -1,4 +1,4 @@
-package org.example.aula2909.estruturasrepeticao;
+package org.example.aula2909.repeticao;
 
 public class EstruturaRepeticao {
         public static void main(String[] args) {

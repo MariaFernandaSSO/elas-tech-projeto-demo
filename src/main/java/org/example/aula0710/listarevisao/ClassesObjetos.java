@@ -1,4 +1,4 @@
-package org.example.aula0710.listarevisao0710;
+package org.example.aula0710.listarevisao;
 
 public class ClassesObjetos {
     public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class ClassesObjetos {
         pet1.peso = 25.5;
 
         System.out.println("Nome: " + pet1.nome);
-        System.out.println("Raça: " + pet1.raca);
+        System.out.println("RaÃ§a: " + pet1.raca);
         System.out.println("Peso: " + pet1.peso);
         System.out.println();
 
@@ -21,11 +21,11 @@ public class ClassesObjetos {
 
         Pet pet2 = new Pet();
         pet2.nome = "Mimi";
-        pet2.raca = "Siamês";
+        pet2.raca = "SiamÃªs";
         pet2.peso = 4.2;
 
-        System.out.println("Ficha 1 - Nome: " + pet1.nome + ", Raça: " + pet1.raca + ", Peso: " + pet1.peso);
-        System.out.println("Ficha 2 - Nome: " + pet2.nome + ", Raça: " + pet2.raca + ", Peso: " + pet2.peso);
+        System.out.println("Ficha 1 - Nome: " + pet1.nome + ", RaÃ§a: " + pet1.raca + ", Peso: " + pet1.peso);
+        System.out.println("Ficha 2 - Nome: " + pet2.nome + ", RaÃ§a: " + pet2.raca + ", Peso: " + pet2.peso);
         System.out.println();
 
         // 3 - Crie uma classe Produto com nome, preco e quantidade. Imprima o valor total em estoque.
@@ -38,13 +38,13 @@ public class ClassesObjetos {
 
         double valorTotalEstoque = produto.preco * produto.quantidade;
         System.out.println("Produto: " + produto.nome);
-        System.out.println("Preço unitário: R$ " + produto.preco);
+        System.out.println("PreÃ§o unitÃ¡rio: R$ " + produto.preco);
         System.out.println("Quantidade: " + produto.quantidade);
         System.out.println("Valor total em estoque: R$ " + valorTotalEstoque);
         System.out.println();
 
-        // 4 - Crie uma classe Aluna com nome, nota1, nota2 e media. Calcule a média e imprima a ficha.
-        System.out.println("Ex4 - Ficha da aluna com média");
+        // 4 - Crie uma classe Aluna com nome, nota1, nota2 e media. Calcule a mÃ©dia e imprima a ficha.
+        System.out.println("Ex4 - Ficha da aluna com mÃ©dia");
 
         Aluna aluna = new Aluna();
         aluna.nome = "Maria";
@@ -55,14 +55,14 @@ public class ClassesObjetos {
         System.out.println("Nome: " + aluna.nome);
         System.out.println("Nota 1: " + aluna.nota1);
         System.out.println("Nota 2: " + aluna.nota2);
-        System.out.println("Média: " + aluna.media);
+        System.out.println("MÃ©dia: " + aluna.media);
         System.out.println();
 
-        // Mini-desafio - Crie uma classe Jogadora com nome e pontos. Crie três jogadoras com
-        // pontuações diferentes e descubra qual tem a maior pontuação. Imprima o nome dela.
-        // Dica: compare os atributos pontos de cada objeto, igual você compararia números comuns.
-        // Guarde numa variável o nome da jogadora com a maior pontuação encontrada até agora.
-        System.out.println("Mini-desafio - Jogadora com maior pontuação");
+        // Mini-desafio - Crie uma classe Jogadora com nome e pontos. Crie trÃªs jogadoras com
+        // pontuaÃ§Ãµes diferentes e descubra qual tem a maior pontuaÃ§Ã£o. Imprima o nome dela.
+        // Dica: compare os atributos pontos de cada objeto, igual vocÃª compararia nÃºmeros comuns.
+        // Guarde numa variÃ¡vel o nome da jogadora com a maior pontuaÃ§Ã£o encontrada atÃ© agora.
+        System.out.println("Mini-desafio - Jogadora com maior pontuaÃ§Ã£o");
 
         Jogadora jogadora1 = new Jogadora();
         jogadora1.nome = "Ana";
@@ -84,6 +84,6 @@ public class ClassesObjetos {
             melhor = jogadora3;
         }
 
-        System.out.println("Jogadora com maior pontuação: " + melhor.nome);
+        System.out.println("Jogadora com maior pontuaÃ§Ã£o: " + melhor.nome);
     }
 }
