@@ -24,7 +24,7 @@ public class Petshop {
         /*
         3. O porte do pet
 
-        Antes de mostrar a ficha, descubra o porte do pet pelo peso:
+        Descubra o porte do pet pelo peso:
         menos de 10 kg -> Pequeno
         de 10 a menos de 25 kg -> Médio
         25 kg ou mais -> Grande
@@ -40,16 +40,27 @@ public class Petshop {
         }
 
         /*
+        4. Juntando tudo num objeto
+
+        Substitua as variáveis soltas pelos atributos do objeto Pet.
+         */
+        Pet meuPet = new Pet();
+        meuPet.nome = nome;
+        meuPet.especie = especie;
+        meuPet.peso = peso;
+        meuPet.porte = porte;
+
+        /*
         1. A primeira ficha
 
-        Imprima a ficha do pet, agora com o porte.
+        Imprima a ficha do pet pegando tudo do objeto.
          */
         System.out.println();
         System.out.println("=== FICHA DO PET ===");
-        System.out.println("Nome: " + nome);
-        System.out.println("Espécie: " + especie);
-        System.out.printf("Peso: %.1f kg%n", peso);
-        System.out.println("Porte: " + porte);
+        System.out.println("Nome: " + meuPet.nome);
+        System.out.println("Espécie: " + meuPet.especie);
+        System.out.printf("Peso: %.1f kg%n", meuPet.peso);
+        System.out.println("Porte: " + meuPet.porte);
 
         sc.close();
     }
