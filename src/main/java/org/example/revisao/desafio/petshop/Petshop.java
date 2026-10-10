@@ -1,5 +1,6 @@
 package org.example.revisao.desafio.petshop;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Petshop {
@@ -28,75 +29,87 @@ public class Petshop {
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
-            opcao = sc.nextInt();
-            sc.nextLine();
+            /*
+            10. Trate erros do menu
 
-            switch (opcao) {
-                case 1:
-                    // Cadastro: cada pet novo vai pra uma posição diferente
-                    System.out.print("Nome do pet: ");
-                    String nome = sc.nextLine();
+            try/catch em volta da leitura e do switch: se a leitura der erro,
+            o switch nem roda. O sc.nextLine() do catch limpa a letra digitada
+            pra não virar loop infinito.
+             */
+            try {
+                opcao = sc.nextInt();
+                sc.nextLine();
 
-                    System.out.print("Espécie: ");
-                    String especie = sc.nextLine();
+                switch (opcao) {
+                    case 1:
+                        // Cadastro: cada pet novo vai pra uma posição diferente
+                        System.out.print("Nome do pet: ");
+                        String nome = sc.nextLine();
 
-                    System.out.print("Peso (kg): ");
-                    double peso = sc.nextDouble();
-                    sc.nextLine();
+                        System.out.print("Espécie: ");
+                        String especie = sc.nextLine();
 
-                    Pet pet = new Pet();
-                    pet.nome = nome;
-                    pet.especie = especie;
-                    pet.peso = peso;
-                    pet.porte = pet.definirPorte();
+                        System.out.print("Peso (kg): ");
+                        double peso = sc.nextDouble();
+                        sc.nextLine();
 
-                    lista[total] = pet;
-                    total++;
+                        Pet pet = new Pet();
+                        pet.nome = nome;
+                        pet.especie = especie;
+                        pet.peso = peso;
+                        pet.porte = pet.definirPorte();
 
-                    System.out.println("Pet cadastrado! Agora são " + total + " pet(s).");
-                    break;
+                        lista[total] = pet;
+                        total++;
 
-                case 2:
-                    // Percorre só até o total: não dá pra ler posição vazia
-                    if (total == 0) {
-                        System.out.println("Nenhum pet cadastrado.");
-                    } else {
-                        System.out.println();
-                        System.out.println("--- PETS CADASTRADOS ---");
+                        System.out.println("Pet cadastrado! Agora são " + total + " pet(s).");
+                        break;
+
+                    case 2:
+                        // Percorre só até o total: não dá pra ler posição vazia
+                        if (total == 0) {
+                            System.out.println("Nenhum pet cadastrado.");
+                        } else {
+                            System.out.println();
+                            System.out.println("--- PETS CADASTRADOS ---");
+                            for (int i = 0; i < total; i++) {
+                                System.out.println(lista[i].nome + " (" + lista[i].especie + ") - "
+                                        + lista[i].peso + " kg - Porte " + lista[i].porte);
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        // Busca ignorando maiúsculas e minúsculas
+                        System.out.print("Qual pet você procura? ");
+                        String busca = sc.nextLine();
+
+                        boolean achou = false;
+
                         for (int i = 0; i < total; i++) {
-                            System.out.println(lista[i].nome + " (" + lista[i].especie + ") - "
-                                    + lista[i].peso + " kg - Porte " + lista[i].porte);
+                            if (lista[i].nome.equalsIgnoreCase(busca)) {
+                                System.out.println("Encontrado: " + lista[i].nome + " ("
+                                        + lista[i].especie + ") - " + lista[i].peso + " kg");
+                                achou = true;
+                            }
                         }
-                    }
-                    break;
 
-                case 3:
-                    // Busca ignorando maiúsculas e minúsculas
-                    System.out.print("Qual pet você procura? ");
-                    String busca = sc.nextLine();
-
-                    boolean achou = false;
-
-                    for (int i = 0; i < total; i++) {
-                        if (lista[i].nome.equalsIgnoreCase(busca)) {
-                            System.out.println("Encontrado: " + lista[i].nome + " ("
-                                    + lista[i].especie + ") - " + lista[i].peso + " kg");
-                            achou = true;
+                        if (!achou) {
+                            System.out.println("Pet não encontrado.");
                         }
-                    }
+                        break;
 
-                    if (!achou) {
-                        System.out.println("Pet não encontrado.");
-                    }
-                    break;
+                    case 0:
+                        System.out.println("Até logo!");
+                        break;
 
-                case 0:
-                    System.out.println("Até logo!");
-                    break;
-
-                default:
-                    System.out.println("Opção inválida.");
-                    break;
+                    default:
+                        System.out.println("Opção inválida.");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Digite apenas números!");
+                sc.nextLine();
             }
         }
 
