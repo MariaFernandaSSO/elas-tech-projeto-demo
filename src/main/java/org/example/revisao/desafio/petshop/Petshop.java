@@ -30,26 +30,24 @@ public class Petshop {
         meuPet.nome = nome;
         meuPet.especie = especie;
         meuPet.peso = peso;
-
-        /*
-        5. Tirando o porte do main
-
-        Todo aquele if virou uma linha só.
-        Atenção: o peso foi preenchido antes de chamar o método.
-         */
         meuPet.porte = meuPet.definirPorte();
 
         /*
-        1. A primeira ficha
+        6. Vários pets
 
-        Imprima a ficha do pet pegando tudo do objeto.
+        Crie um array do tipo Pet com espaço pra 5 pets e guarde o pet
+        cadastrado na primeira posição.
+         */
+        Pet[] lista = new Pet[5];
+        lista[0] = meuPet;
+
+        /*
+        Imprima os dados dele pegando direto do array, pela posição.
          */
         System.out.println();
-        System.out.println("=== FICHA DO PET ===");
-        System.out.println("Nome: " + meuPet.nome);
-        System.out.println("Espécie: " + meuPet.especie);
-        System.out.printf("Peso: %.1f kg%n", meuPet.peso);
-        System.out.println("Porte: " + meuPet.porte);
+        System.out.println("--- PETS CADASTRADOS ---");
+        System.out.println(lista[0].nome + " (" + lista[0].especie + ") - "
+                + lista[0].peso + " kg - Porte " + lista[0].porte);
 
         sc.close();
     }
