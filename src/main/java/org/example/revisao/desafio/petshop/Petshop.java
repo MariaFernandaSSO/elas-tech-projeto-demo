@@ -5,49 +5,64 @@ import java.util.Scanner;
 public class Petshop {
     public static void main(String[] args) {
 
-        /*
-        2. Perguntando os dados
-
-        Peça ao usuário nome, espécie e peso.
-         */
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nome do pet: ");
-        String nome = sc.nextLine();
-
-        System.out.print("Espécie: ");
-        String especie = sc.nextLine();
-
-        System.out.print("Peso (kg): ");
-        double peso = sc.nextDouble();
-
         /*
-        4. Juntando tudo num objeto
+        6/7. Array de pets + O menu
 
-        Crie o pet e preencha os atributos.
-         */
-        Pet meuPet = new Pet();
-        meuPet.nome = nome;
-        meuPet.especie = especie;
-        meuPet.peso = peso;
-        meuPet.porte = meuPet.definirPorte();
-
-        /*
-        6. Vários pets
-
-        Crie um array do tipo Pet com espaço pra 5 pets e guarde o pet
-        cadastrado na primeira posição.
+        Array com espaço pra 5, contador de cadastrados, e o programa
+        rodando até a pessoa escolher sair.
+        opcao começa em -1: se começasse em 0, o while nem entraria.
          */
         Pet[] lista = new Pet[5];
-        lista[0] = meuPet;
+        int total = 0;
+        int opcao = -1;
 
-        /*
-        Imprima os dados dele pegando direto do array, pela posição.
-         */
-        System.out.println();
-        System.out.println("--- PETS CADASTRADOS ---");
-        System.out.println(lista[0].nome + " (" + lista[0].especie + ") - "
-                + lista[0].peso + " kg - Porte " + lista[0].porte);
+        while (opcao != 0) {
+
+            System.out.println();
+            System.out.println("=== PETSHOP ===");
+            System.out.println("1 - Cadastrar pet");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha: ");
+
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    // Cadastro: cada pet novo vai pra uma posição diferente
+                    System.out.print("Nome do pet: ");
+                    String nome = sc.nextLine();
+
+                    System.out.print("Espécie: ");
+                    String especie = sc.nextLine();
+
+                    System.out.print("Peso (kg): ");
+                    double peso = sc.nextDouble();
+                    sc.nextLine();
+
+                    Pet pet = new Pet();
+                    pet.nome = nome;
+                    pet.especie = especie;
+                    pet.peso = peso;
+                    pet.porte = pet.definirPorte();
+
+                    lista[total] = pet;
+                    total++;
+
+                    System.out.println("Pet cadastrado! Agora são " + total + " pet(s).");
+                    break;
+
+                case 0:
+                    System.out.println("Até logo!");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
+                    break;
+            }
+        }
 
         sc.close();
     }
