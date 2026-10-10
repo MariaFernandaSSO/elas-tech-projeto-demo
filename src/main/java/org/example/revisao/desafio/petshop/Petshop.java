@@ -22,33 +22,22 @@ public class Petshop {
         double peso = sc.nextDouble();
 
         /*
-        3. O porte do pet
-
-        Descubra o porte do pet pelo peso:
-        menos de 10 kg -> Pequeno
-        de 10 a menos de 25 kg -> Médio
-        25 kg ou mais -> Grande
-         */
-        String porte;
-
-        if (peso < 10) {
-            porte = "Pequeno";
-        } else if (peso < 25) {
-            porte = "Médio";
-        } else {
-            porte = "Grande";
-        }
-
-        /*
         4. Juntando tudo num objeto
 
-        Substitua as variáveis soltas pelos atributos do objeto Pet.
+        Crie o pet e preencha os atributos.
          */
         Pet meuPet = new Pet();
         meuPet.nome = nome;
         meuPet.especie = especie;
         meuPet.peso = peso;
-        meuPet.porte = porte;
+
+        /*
+        5. Tirando o porte do main
+
+        Todo aquele if virou uma linha só.
+        Atenção: o peso foi preenchido antes de chamar o método.
+         */
+        meuPet.porte = meuPet.definirPorte();
 
         /*
         1. A primeira ficha
