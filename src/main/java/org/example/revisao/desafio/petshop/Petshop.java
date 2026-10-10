@@ -100,6 +100,14 @@ public class Petshop {
                             for (int i = 0; i < total; i++) {
                                 System.out.println(lista[i].nome + " (" + lista[i].especie + ") - "
                                         + lista[i].peso + " kg - Porte " + lista[i].porte);
+
+                                /*
+                                15. Cada um responde do seu jeito
+
+                                Polimorfismo: cada pet chama o emitirSom()
+                                da sua classe (Cachorro, Gato ou Pet).
+                                 */
+                                lista[i].emitirSom();
                             }
                         }
                         break;
