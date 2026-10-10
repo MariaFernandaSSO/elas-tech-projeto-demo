@@ -1,5 +1,6 @@
 package org.example.revisao.desafio.petshop;
 
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,6 +27,7 @@ public class Petshop {
             System.out.println("1 - Cadastrar pet");
             System.out.println("2 - Listar pets");
             System.out.println("3 - Buscar pelo nome");
+            System.out.println("4 - Mostrar espécies");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -97,6 +99,22 @@ public class Petshop {
                         if (!achou) {
                             System.out.println("Pet não encontrado.");
                         }
+                        break;
+
+                    case 4:
+                        // HashSet descarta repetidos: cada espécie aparece uma vez só
+                        HashSet<String> especies = new HashSet<>();
+
+                        for (int i = 0; i < total; i++) {
+                            especies.add(lista[i].especie);
+                        }
+
+                        System.out.println();
+                        System.out.println("--- ESPÉCIES CADASTRADAS ---");
+                        for (String nomeEspecie : especies) {
+                            System.out.println("- " + nomeEspecie);
+                        }
+                        System.out.println("Total de espécies diferentes: " + especies.size());
                         break;
 
                     case 0:
