@@ -21,4 +21,13 @@ public class Pet {
             return "Grande";
         }
     }
+
+    /*
+    14. Cachorro e gato
+
+    Som genérico: as filhas Cachorro e Gato sobrescrevem com o som delas.
+     */
+    public void emitirSom() {
+        System.out.println(nome + " faz: som de pet.");
+    }
 }

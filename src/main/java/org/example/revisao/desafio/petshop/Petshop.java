@@ -63,7 +63,22 @@ public class Petshop {
                         double peso = sc.nextDouble();
                         sc.nextLine();
 
-                        Pet pet = new Pet();
+                        /*
+                        14. Cachorro e gato
+
+                        Variável do tipo da mãe, objeto da filha certa
+                        conforme a espécie digitada.
+                         */
+                        Pet pet;
+
+                        if (especie.equalsIgnoreCase("Cachorro")) {
+                            pet = new Cachorro();
+                        } else if (especie.equalsIgnoreCase("Gato")) {
+                            pet = new Gato();
+                        } else {
+                            pet = new Pet();
+                        }
+
                         pet.nome = nome;
                         pet.especie = especie;
                         pet.peso = peso;
