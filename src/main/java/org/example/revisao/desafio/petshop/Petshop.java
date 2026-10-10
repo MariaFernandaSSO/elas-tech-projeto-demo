@@ -199,6 +199,36 @@ public class Petshop {
             }
         }
 
+        /*
+        16. Duas fichas, um nome só
+
+        Dois métodos com o mesmo nome e quantidades de parâmetro diferentes.
+        O Java escolhe pelo que você passou: isso é SOBRECARGA.
+         */
+        Pet mel = new Cachorro();
+        mel.nome = "Mel";
+        mel.especie = "Cachorro";
+        mel.peso = 8.5;
+        mel.porte = mel.definirPorte();
+
+        mostrarFicha(mel);
+        System.out.println("---");
+        mostrarFicha(mel, "=== FICHA DO PET ===");
+
         sc.close();
+    }
+
+    // Mesmo nome, um parâmetro: mostra só o nome
+    static void mostrarFicha(Pet pet) {
+        System.out.println("Nome: " + pet.nome);
+    }
+
+    // Mesmo nome, dois parâmetros: título + ficha completa
+    static void mostrarFicha(Pet pet, String titulo) {
+        System.out.println(titulo);
+        System.out.println("Nome: " + pet.nome);
+        System.out.println("Espécie: " + pet.especie);
+        System.out.printf("Peso: %.1f kg%n", pet.peso);
+        System.out.println("Porte: " + pet.porte);
     }
 }
