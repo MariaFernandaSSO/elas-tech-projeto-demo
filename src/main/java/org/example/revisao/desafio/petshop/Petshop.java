@@ -1,5 +1,6 @@
 package org.example.revisao.desafio.petshop;
 
+import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -20,6 +21,9 @@ public class Petshop {
         int total = 0;
         int opcao = -1;
 
+        // Fila de banho: quem entra primeiro é atendido primeiro
+        ArrayDeque<String> fila = new ArrayDeque<>();
+
         while (opcao != 0) {
 
             System.out.println();
@@ -28,6 +32,8 @@ public class Petshop {
             System.out.println("2 - Listar pets");
             System.out.println("3 - Buscar pelo nome");
             System.out.println("4 - Mostrar espécies");
+            System.out.println("5 - Entrar na fila de banho");
+            System.out.println("6 - Atender o próximo");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -115,6 +121,28 @@ public class Petshop {
                             System.out.println("- " + nomeEspecie);
                         }
                         System.out.println("Total de espécies diferentes: " + especies.size());
+                        break;
+
+                    case 5:
+                        // add() entra no fim da fila
+                        System.out.print("Nome do pet pra entrar na fila: ");
+                        String petFila = sc.nextLine();
+
+                        fila.add(petFila);
+                        System.out.println(petFila + " entrou na fila.");
+                        System.out.println("Fila agora: " + fila);
+                        break;
+
+                    case 6:
+                        // isEmpty() antes: peek e poll numa fila vazia devolvem null
+                        if (fila.isEmpty()) {
+                            System.out.println("Fila vazia. Ninguém pra atender.");
+                        } else {
+                            String atendido = fila.poll();
+                            System.out.println("Próximo da fila: " + atendido);
+                            System.out.println("Atendendo " + atendido + "...");
+                            System.out.println("Fila agora: " + fila);
+                        }
                         break;
 
                     case 0:
