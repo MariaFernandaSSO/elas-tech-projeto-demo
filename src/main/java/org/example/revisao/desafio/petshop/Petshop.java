@@ -1,6 +1,7 @@
 package org.example.revisao.desafio.petshop;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -34,6 +35,7 @@ public class Petshop {
             System.out.println("4 - Mostrar espécies");
             System.out.println("5 - Entrar na fila de banho");
             System.out.println("6 - Atender o próximo");
+            System.out.println("7 - Executar serviços");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -142,6 +144,21 @@ public class Petshop {
                             System.out.println("Próximo da fila: " + atendido);
                             System.out.println("Atendendo " + atendido + "...");
                             System.out.println("Fila agora: " + fila);
+                        }
+                        break;
+
+                    case 7:
+                        // ArrayList do tipo da interface, guardando as implementações
+                        System.out.print("Nome do pet: ");
+                        String nomeServico = sc.nextLine();
+
+                        ArrayList<Servico> servicos = new ArrayList<>();
+                        servicos.add(new Banho());
+                        servicos.add(new Tosa());
+                        servicos.add(new Consulta());
+
+                        for (Servico servico : servicos) {
+                            servico.executar(nomeServico);
                         }
                         break;
 
