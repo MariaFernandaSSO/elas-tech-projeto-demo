@@ -24,6 +24,7 @@ public class Petshop {
             System.out.println("=== PETSHOP ===");
             System.out.println("1 - Cadastrar pet");
             System.out.println("2 - Listar pets");
+            System.out.println("3 - Buscar pelo nome");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
 
@@ -66,6 +67,26 @@ public class Petshop {
                             System.out.println(lista[i].nome + " (" + lista[i].especie + ") - "
                                     + lista[i].peso + " kg - Porte " + lista[i].porte);
                         }
+                    }
+                    break;
+
+                case 3:
+                    // Busca ignorando maiúsculas e minúsculas
+                    System.out.print("Qual pet você procura? ");
+                    String busca = sc.nextLine();
+
+                    boolean achou = false;
+
+                    for (int i = 0; i < total; i++) {
+                        if (lista[i].nome.equalsIgnoreCase(busca)) {
+                            System.out.println("Encontrado: " + lista[i].nome + " ("
+                                    + lista[i].especie + ") - " + lista[i].peso + " kg");
+                            achou = true;
+                        }
+                    }
+
+                    if (!achou) {
+                        System.out.println("Pet não encontrado.");
                     }
                     break;
 
