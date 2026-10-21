@@ -1,4 +1,4 @@
-package org.example.aula2110;
+package org.example.aula2110.construtor;
 
 /*
 ATIVIDADE - Construtores (21/10)

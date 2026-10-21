@@ -1,4 +1,4 @@
-package org.example.aula2110;
+package org.example.aula2110.construtor;
 
 public class Agendamento {
     private final String nomePet;
