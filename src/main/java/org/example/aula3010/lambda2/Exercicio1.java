@@ -1,4 +1,4 @@
-package org.example.aula3010;
+package org.example.aula3010.lambda2;
 
 public class Exercicio1 {
 
